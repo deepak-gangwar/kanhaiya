@@ -1,5 +1,5 @@
 ---
-title: Deepak Gangwar's blog
+title: Kanhaiya Lal Pareek
 layout: layouts/base.njk
 btnTitle: Read the articles
 btnHref: /archives
@@ -14,7 +14,9 @@ btnHref: /archives
         {# Bringing in 3 most recent posts #}
         {% for post in collections.post | reverse %}
           {% if loop.index0 < 3 %}
-            <p class="para"><a class="highlighter" href="{{ post.url }}">{{ post.data.title }}</a></p>
+            <p class="para">
+              <a class="highlighter" href="{{ post.url }}">{{ post.data.title }}</a>
+            </p>
           {% endif %}
         {% endfor %}
       </div>
