@@ -1,0 +1,304 @@
+.post__wrapper {
+  margin: 0 17vw;
+  margin-top: var(--space-2xl-3xl);
+  margin-bottom: var(--space-xl);
+  height: fit-content;
+}
+
+@media screen and (max-width: 480px) {
+  .post__wrapper {
+    margin-left: var(--space-m);
+    margin-right: var(--space-m);
+  }
+}
+
+.post__wrapper ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.post__heading {
+  /* display: flex; */
+  min-width: fit-content;
+  width: 30vw;
+  align-items: center;
+}
+
+.post__heading .accent {
+  margin-bottom: var(--space-2xs);
+}
+
+.post__title {
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-serif);
+  line-height: var(--leading-tighter);
+  letter-spacing: -0.03em;
+  font-weight: normal;
+  margin-bottom: var(--space-2xs);
+  max-width: 1200px;
+  max-width: 13ch;
+  display: inline-block;
+}
+
+.post__subtitle {
+  display: inline-block;
+  font-size: var(--font-size-md);
+  font-family: var(--font-sans);
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  /* margin-bottom: var(--space-3xs); */
+  /* margin-bottom: var(--space-xl); */
+  margin-left: var(--space-3xs);
+  color: var(--color-gray-600);
+}
+
+.metadata__container {
+  display: flex;
+  gap: 1rem;
+}
+
+.post__metadata {
+  display: inline-block;
+  font-size: var(--font-size-s);
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+  /* margin-bottom: var(--space-3xs); */
+  /* margin-bottom: var(--space-xl); */
+  margin-left: var(--space-3xs);
+  color: var(--color-gray-800);
+}
+
+@media (max-width: 780px) {
+  .metadata__container {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+
+  .metadata__container span {
+    display: none;
+  }
+}
+
+.metadata__tags__list {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  text-transform: capitalize;
+  margin-bottom: var(--space-xl);
+}
+
+.metadata__tag {
+  /* color: #233043;
+    border: 1px solid #233043; */
+  color: var(--color-gray-600);
+  color: var(--color-bright-crimson);
+  border: 1px solid var(--color-gray-400);
+  border-radius: 8px;
+  /* padding: 2px 12px; */
+  transition: all 0.3s ease;
+}
+
+.metadata__tag:hover {
+  background: var(--color-cute-purple);
+  background: var(--color-salmon);
+  color: var(--color-gray-800);
+  border-color: transparent;
+}
+
+.metadata__tag a {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 2.5px 12.5px;
+}
+
+.post__wrapper hr {
+  color: var(--color-gray-400);
+}
+
+.post__content {
+  max-width: 58ch;
+}
+
+.post__content h1,
+.post__content h2,
+.post__content h3 {
+  font-family: var(--font-sans);
+  /* font-size: 1.875rem; */
+  font-size: var(--font-size-md);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-l);
+  margin-top: var(--space-2xl);
+  position: relative;
+}
+
+.post__content p {
+  color: var(--color-gray-800);
+  /* max-width: 52ch; */
+  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
+  /* max-width: 45ch; */
+  /* font-size: var(--font-size-base); */
+  line-height: var(--leading-looser);
+  margin-bottom: var(--space-m);
+}
+
+.post__content ul,
+.post__content ol {
+  padding-left: 1.5rem;
+  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
+  line-height: var(--leading-looser);
+  margin-bottom: var(--space-m);
+}
+
+.post__content ul {
+  list-style-type: disc;
+}
+
+.post__content li {
+  padding-left: 1rem;
+}
+
+.post__content a {
+  /* color: var(--color-bright-crimson); */
+  /* font-weight: normal; */
+}
+
+.section-direct-links::before {
+  content: '🔗';
+  position: absolute;
+  left: -55px;
+  transform: scale(0.7);
+  visibility: hidden;
+}
+
+.section-direct-links:hover {
+  text-decoration: underline;
+}
+
+.section-direct-links:hover::before {
+  visibility: visible;
+}
+
+/* 
+* Styles for code blocks
+* ======================
+*/
+
+.post__content pre {
+  position: relative;
+  border-radius: 15px;
+}
+
+.post__content pre * ::-webkit-scrollbar {
+  width: 11px;
+}
+
+.post__content pre * {
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-lilac-no-swop) var(--color-dark-no-swop);
+}
+
+.post__content pre ::-webkit-scrollbar-track {
+  background: var(--color-dark-no-swop);
+}
+
+.post__content pre ::-webkit-scrollbar-thumb {
+  background-color: var(--color-lilac-no-swop);
+  border-radius: 6px;
+  border: 3px solid var(--color-dark-no-swop);
+}
+
+.post__content code {
+  /* font-size: var(--step-0); */
+  font-size: var(--font-size-xs);
+  white-space: pre;
+  color: var(--color-lilac-no-swop);
+  font-weight: 700;
+  /* margin-left: .5ch; */
+  /* margin-right: .5ch; */
+}
+
+.post__content pre > code {
+  overflow: auto;
+  position: unset;
+  width: 100%;
+  margin-right: 0;
+  --color-selection: var(--color-lilac);
+  --color-selection-bg: var(--color-light-selection);
+}
+
+.post__content pre[class*='language-'] {
+  /* .post__content pre { */
+  overflow: visible;
+  /* margin-top: 2rem; */
+  margin: var(--space-xl) 0;
+}
+
+.post__content pre[class*='language-']:after {
+  /* .post__content pre code:after { */
+  font-family: Mosk, sans-serif;
+  /* font-size: var(--step--1); */
+  font-size: var(--font-sizs-xs);
+  position: absolute;
+  content: '';
+  bottom: 100%;
+  right: 1.5rem;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: inherit;
+  color: var(--color-lilac-up);
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  min-width: 3rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.post__content pre[class*='language-'] + pre[class*='language-'] {
+  /* .post__content pre+pre { */
+  margin-top: 4rem;
+}
+
+.post__content pre.language-css:after {
+  content: 'CSS';
+}
+
+.post__content pre.language-svg:after {
+  content: 'SVG';
+}
+
+.post__content pre.language-html:after {
+  content: 'HTML';
+}
+
+.post__content pre.language-js:after {
+  content: 'JS';
+}
+
+.post__content pre.language-json:after {
+  content: 'data.html';
+}
+
+.post__content pre.language-bash:after {
+  content: 'bash';
+}
+
+.post__content pre.language-glsl:after {
+  content: 'glsl';
+}
+
+.post__content figure,
+.post__content pre > code,
+.post__content .video-player {
+  width: 100%;
+  /* max-width: map-get($metrics, 'wrap-max-width'); */
+  max-width: 80rem;
+  margin-left: 50%; /*changing this value to 47% removes the horizontal scrollbar once the viewport is < 930px */
+  transform: translateX(-50%); /* changing this value to 49% allows for the suggestion above to also eliminate the horizontal scroll. */
+  position: relative;
+}
+
+.post__content pre>code {
+    display: block;
+    /* font-size: var(--step-0); */
+}

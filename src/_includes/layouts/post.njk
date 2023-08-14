@@ -1,0 +1,91 @@
+---
+layout: layouts/base.njk
+---
+
+{# 
+Similar to the page.njk template, the post template extends the base 
+template with additions that make sense for posts (such as the date 
+of publication). 
+#}
+
+{# 
+In a real-world project, it’s likely that you’ll want different 
+layouts for posts and pages, so it’s good practice to create a 
+new layout for each one. 
+#}
+
+
+{# For providing reading time #}
+{% set regExpCode = r/<pre class=(.|\n)*?<\/pre>/gm %}
+{% set fixedContent = content | replace(regExpCode, "") | striptags %}
+{% set wordCount = fixedContent | wordcount %}
+{% set readingRate = 225 %}
+{% set readingTime = (wordCount/readingRate) | round %}
+{% if readingTime < 1 %}{% set readingTime = 1 %}{% endif %}
+
+{# Current style includes a title with max-width and an accent, plus the subtitle #}
+{# Another style that I felt good about was without accent and max-width title, and no subtitle, clean layout #}
+<div class="post__wrapper">
+
+  {# Heading #}
+  <div class="post__heading">
+    {# Updated title to heading, this way you can have main heading other than page title #}
+    <h1 class="post__title">
+      {{ heading }}
+      {# Can remove accent if you don't want it #}
+      {# Accent is causing issues on the title which are not long enough but accent is coming on to new line #}
+      {# <span class="accent contact__accent"></span> #}
+    </h1>
+  </div>
+  {# Added this later on. Thought it would be better to describe the post in more wordly subtitle and keep title short. #}
+  {% if subtitle %}<h2 class="post__subtitle">{{ subtitle }}</h2>{% endif %}
+
+  <hr class="wide-hr">
+
+  {# Article Metadata #}
+  <div class="metadata__container">
+    <p class="post__metadata">Written by {{ author }}</p>
+    <span>|</span>
+    
+    {# --------------- Date ------------------ #}
+    <p class="post__metadata">
+      Published on: <time datetime="{{ page.date }}">{{ page.date | readableDate }}</time>
+    </p>
+    <span>|</span>
+    
+    {# --------------- Reading time ---------- #}
+    <p class="post__metadata">
+      {# Different styles of reading time #}
+      {# {{ wordCount | numCommas }} words • Reading time: {{ readingTime }} minute{% if readingTime > 1 %}s{% endif %} #}
+      {# Reading time: {{ readingTime }} minute{% if readingTime > 1 %}s{% endif %} #}
+      {{ readingTime }} min read
+    </p>
+  </div>
+
+  {# --------------- Tags ------------------ #}
+  <div class="post__tags">
+    <ul class="metadata__tags__list">
+      {% for tag in tags %}
+        <li class="metadata__tag">
+          <a href="/categories/{{ tag | slugify }}">{{tag}}</a>
+          {# <a href="/categories/{{ tag | slugify }}">{{tag}}</a> #}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {# ------------- On this page ------------ #}
+  <div class="onpage__wrapper">
+    <small class="onpage__title">ON THIS PAGE</small>
+    <ul class="onpage__list"></ul>
+  </div>
+
+  {# --------------- Content --------------- #}
+  <article class="post__content">
+    {{ content | safe }}
+  </article>
+</div>
+
+
+{# -------------- Social Sharing -------------- #}
+{% include "components/postShare.njk" %}

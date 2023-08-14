@@ -1,0 +1,66 @@
+---
+title: Deepak Gangwar's blog
+layout: layouts/base.njk
+btnTitle: Read the articles
+btnHref: /archives
+---
+
+{# ------------- Hero section ------------- #}
+
+{# <section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Hi, I'm {{ site.title }}</h1>
+      <h2 class="subtitle">Designer, Writer and Frontend Freelance Developer</h2>
+      <h2 class="subtitle">{{ site.description }}</h2>
+    </div>
+  </div>
+</section> #}
+
+<header class="hero">
+  <div class="hero__heading">
+    <h1 class="hero__title">Deepak</h1>
+    <h1 class="hero__title">Gangwar's blog</h1>
+    {# <span class="accent contact__accent"></span> #}
+  </div>
+  <span class="hero__subtitle">Mumblings of a designer x frontend developer ✌</span>
+  <br>
+  {% include "components/uns-btn.njk" %}
+</header>
+
+{# -------------  Homepage Section 1 ----------------- #}
+
+<section class="sc-01">
+  <div class="sc-01__container">
+
+    {# ---------- Column 1 ---------- #}
+    <div class="sc-01__column-1 sc-01__column">
+      <h2 class="sc-01__heading">Hi, I'm Deepak Gangwar</h2>
+      <p class="para">I love drawing and used to draw cartoons, which I thought I’d do later in life. But when I was 14 years old, my friend made a website and hyperlinked an image to another page. That was it—a point of no return. I knew I had to pursue front-end development. It is the perfect equilibrium for my need for creativity and mental stimulation.</p>
+      <p class="para">I seek to create websites for people. I love my work. I do it until my fingers bleed or my eyes are ready to fall out of my head. Even when no one is listening or watching, every project is an impressive feat, because I, as a creator, am happy. Perhaps even ecstatic.</p>
+    </div>
+
+    {# ---------- Column 2 ---------- #}
+    <div class="sc-01__column-2 sc-01__column">
+      <div class="sc-01__articles">
+        {# If you later decide to add a heading to homepage, make it an h3 and do these 4 h3s -> h4 #}
+        <h3>Read a recent article 👁‍🗨</h3>
+
+        {# Bringing in 3 most recent posts #}
+        {% for post in collections.post | reverse %}
+          {% if loop.index0 < 3 %}
+            <p class="para"><a class="highlighter" href="{{ post.url }}">{{ post.data.title }}</a></p>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <hr class="wide-hr">
+      <div class="sc-01__newsletter">
+        <h3>Get the latest newsletter 💌</h3>
+        <p class="para"><a class="highlighter" href="/">Why Facts Don’t Change Our Minds</a></p>
+        <p class="para"><a class="highlighter" href="/">Forget About Setting Goals. Focus on This Instead.</a></p>
+        <p class="para"><a class="highlighter" href="/">The Ultimate Productivity Hack is Saying No</a></p>
+      </div>
+    </div>
+  </div>
+</section>

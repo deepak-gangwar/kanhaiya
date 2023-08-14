@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "components/head.njk" %}
+  </head>
+  <body {% if "/archives/" in page.url %} style ="background-color: #ffffff;" {% elseif "/posts/" in page.url %} style ="background-color: #ffffff;" {% endif %}>
+    {# <header>{% include "components/nav.njk" %}</header> #}
+    {% include "components/nav.njk" %}
+
+    <main id="main-content">
+      {{ content | safe }}
+    </main>
+
+    {# Removed the small component #}
+    {# {% include "components/small.njk" %} #}
+
+    {# Added a footer component after removing the upper small component #}
+    {# But I feel like i should remove it from the contact page #}
+    {% include "components/footer.njk" %}
+
+    <script type="text/javascript" src="/js/index.js" defer></script>
+  </body>
+</html>
